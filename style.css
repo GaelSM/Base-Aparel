@@ -1,0 +1,262 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap');
+
+:root{
+--Desaturated-Red: hsl(0, 36%, 70%);
+--Soft-Red: hsl(0, 93%, 68%);
+--Dark-Grayish-Red: hsl(0, 6%, 24%);
+--Gradient-one-color-one: hsl(0, 0%, 100%);
+--Gradient-one-color-two: hsl(0, 0%, 98%);
+--Gradient-two-color-one: hsl(0, 80%, 86%);
+--Gradient-two-color-two: hsl(0, 74%, 74%);
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, var(--Gradient-one-color-two), hsl(0, 100%, 98%));
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+.logo{
+  display: inline-block;
+  height: 1.5rem;
+  margin: 2rem;
+}
+
+.logo img{
+  height: 100%;
+}
+
+.hero__image{
+  height: 16rem;
+  overflow: hidden;
+}
+
+.hero__image img{
+  width: 100%;
+  object-fit: cover;
+}
+
+.content{
+  padding: 4rem 2rem 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content__text{
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.content__text h1{
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  letter-spacing: .5rem;
+  color: var(--Dark-Grayish-Red);
+  margin-bottom: 1rem;
+}
+
+.content__text h1 span{
+  font-weight: 300;
+  color: var(--Desaturated-Red);
+}
+
+.content__text p{
+  font-size: .9rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--Desaturated-Red);
+}
+
+.content__form{
+  width: 100%;
+}
+
+.input{
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 3rem;
+  border: 0.02px solid var(--Desaturated-Red);
+  border-radius: 1.5rem;
+  padding-right: 4.1rem;
+  background: none;
+}
+
+.input input{
+  font-family: 'Josefin Sans', sans-serif;
+  color: var(--Dark-Grayish-Red);
+  padding-left: 1.5rem;
+  flex-grow: 1;
+  height: 100%;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.input input::placeholder{
+  color: var(--Desaturated-Red);
+  opacity: .5;
+}
+
+.input .error{
+  opacity: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.input .error img{
+  width: 1.4rem;
+}
+
+.input button{
+  position: absolute;
+  display: grid;
+  place-items: center;
+  width: 4rem;
+  height: 105%;
+  right: -1%;
+  border: none;
+  border-radius: 1.5rem;
+  background: linear-gradient(135deg, var(--Gradient-two-color-one), var(--Gradient-two-color-two));
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,0.1);
+}
+
+.content__form .message__email{
+  opacity: 0;
+  padding: 1rem 1.5rem 0;
+  font-size: .9rem;
+  font-weight: 600;
+  align-self: flex-start;
+}
+
+
+/* JS */
+.input .show__error{
+  transition: opacity .3s ease-in-out;
+  opacity: 1;
+}
+
+.border__error{
+  transition: border .3s ease-in-out;
+  border: 2px solid var(--Soft-Red);
+}
+
+.content__form .message__error{
+  transition: opacity .5s ease-in-out, color .5s ease-in-out;
+  opacity: 1;
+  color: var(--Soft-Red);
+}
+
+@media (min-width: 500px){
+  .content__text{
+    width: 70%;
+  }
+  .content__form{
+    width: 60%;
+  }
+}
+
+@media (min-width: 1100px){
+  main{
+    background-image: url("/images/bg-pattern-desktop.svg");
+    background-size: 50% 100%;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 15% 1fr;
+    grid-template-areas:
+    "logo img"
+    "cont img"
+    ;
+  }
+
+  .logo{
+    grid-area: logo;
+    width: 100%;
+    height: 100%;
+    padding-left: 20%;
+    margin: 0;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .logo img{
+    height: 30%;
+  }
+
+  .hero__image{
+    height: 100%;
+    grid-area: img;
+  }
+
+  .content{
+    grid-area: cont;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .content__text{
+    width: 60%;
+    text-align: left;
+  }
+
+  .content__text h1{
+    font-size: 4rem;
+    letter-spacing: 1rem;
+  }
+
+  .content__text p{
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .content__form{
+    width: 60%;
+  }
+
+  .input{
+    height: 3.5rem;
+    border-radius: 2rem;
+    padding-right: 7rem;
+  }
+
+  .input .error img{
+    width: 1.5rem;
+  }
+
+  .input button{
+    right: -2%;
+    width: 7rem;
+    height: 110%;
+    border-radius: 2rem;
+  }
+
+  .input button:hover{
+    transition: all 0.3s ease-in;
+    cursor: pointer;
+    background: linear-gradient(135deg, rgb(253, 211, 211),rgb(230, 162, 162));
+  }
+
+  .border__error{
+    transition: border .3s ease-in-out;
+    border: 3px solid var(--Soft-Red);
+  }
+
+  .message__email{
+    height: 1rem;
+  }
+}
